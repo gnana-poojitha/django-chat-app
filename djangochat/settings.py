@@ -20,7 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-e0-rpt5@@x3%6@**=iq&rtkipso@cuh_08w^0+*95@zgc+f!8="
+import os
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+#SECRET_KEY = "django-insecure-e0-rpt5@@x3%6@**=iq&rtkipso@cuh_08w^0+*95@zgc+f!8="
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -121,3 +124,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+
+ALLOWED_HOSTS = ['*']  # Or use Render URL when you know it
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
